@@ -1,0 +1,5 @@
+package br.gov.sp.saobernardo.sispront.usuario;
+
+public enum Unidade {
+	UPA_ALVES_DIAS,UPA_BAETA_NEVES,UPA_DEMARCHI,UPA_PAULICÉIA,UPA_RIACHO_GRANDE,UPA_RUDGE_RAMOS,UPA_SÃO_PEDRO,UPA_SILVINA,UPA_UNIÃO,SAMU,DAHUE;
+}

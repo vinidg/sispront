@@ -1,0 +1,4 @@
+<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver"
+		maxActive="8" maxIdle="4" name="jdbc/sisathi" password="sisatih_dsv"
+		type="javax.sql.DataSource" url="jdbc:oracle:thin:@10.1.0.38:1521/taubipe"
+		username="SISATIH" />

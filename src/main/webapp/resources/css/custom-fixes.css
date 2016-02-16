@@ -1,0 +1,9 @@
+body {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+div.dataTables_wrapper {
+        margin-bottom: 3em;
+    }
+div.container { max-width: 1200px }
+
