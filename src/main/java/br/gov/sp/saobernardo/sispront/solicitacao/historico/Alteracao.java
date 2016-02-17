@@ -15,14 +15,13 @@ import javax.persistence.TemporalType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.gov.sp.saobernardo.sispront.solicitacao.Solicitacao;
 import br.gov.sp.saobernardo.sispront.usuario.Usuario;
 
 @Entity
 public class Alteracao {
 
 	public static enum TipoDeAlteracao {
-		Aguardando_Levantamento_de_Ficha,Aguardando_Retirada,Entregue,Não_Entregue
+		Aguardando_Levantamento_de_Ficha, Aguardando_Retirada, Entregue, Não_Entregue
 	}
 
 	@Id
@@ -58,7 +57,7 @@ public class Alteracao {
 	public Alteracao(Usuario autor, String observacao) {
 		this(TipoDeAlteracao.Entregue, autor, observacao);
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
