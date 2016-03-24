@@ -37,7 +37,7 @@ public class Usuario implements UserDetails {
 
 	private String funcao;
 	
-	private Unidade unidade;
+	private String unidade;
 
 	private String telefone;
 
@@ -147,46 +147,39 @@ public class Usuario implements UserDetails {
 		return false;
 	}
 
-	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return papeis;
 	}
 
-	@Override
 	public String getPassword() {
 		return senha;
 	}
 
-	@Override
 	public String getUsername() {
 		return registro;
 	}
 
-	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
-	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
-	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
-	@Override
 	public boolean isEnabled() {
 		return this.ativado;
 	}
 
-	public Unidade getUnidade() {
+	public String getUnidade() {
 		return unidade;
 	}
 
-	public void setUnidade(Unidade unidade) {
+	public void setUnidade(String unidade) {
 		this.unidade = unidade;
 	}
 

@@ -23,7 +23,7 @@ http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 	<mvc:default-servlet-handler />
 
 	<jee:jndi-lookup jndi-name="jdbc/dahue" id="oracleDataSource" />
-
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -55,7 +55,7 @@ http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 	</bean>
 
 	<tx:annotation-driven />
-	
+
 	<security:authentication-manager>
 		<security:authentication-provider
 			user-service-ref="usuarioDAO">

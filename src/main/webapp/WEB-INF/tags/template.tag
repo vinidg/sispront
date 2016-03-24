@@ -62,7 +62,7 @@
 						<a class="navbar-brand"><label><img
 								style="height: 55px; margin-top: -17px;" alt=""
 								src="<c:url value="/resources/images/so_logo_t_.png" />"></label><label
-							style="font-weight: normal; vertical-align: top;">SisPront</label></a>
+							style="font-weight: normal; vertical-align: top;">SisSoPront</label></a>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="nav navbar-nav">
@@ -71,9 +71,6 @@
 								<li class="${pagina == 'inicial' ? 'active' : '' }"><a
 									href="<c:url value="/a/solicitacao/home"/>">Página
 										inicial</a></li>
-								<li class="${pagina == 'encerradas' ? 'active' : '' }"><a
-									href="<c:url value="/a/solicitacao/encerradas"/>">Solicitações
-										encerradas</a></li>
 							</sec:authorize>
 							<sec:authorize
 								access="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_REGULADOR')">

@@ -4,7 +4,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<dti:template title="SisATIH | Inserir solicitação" cssFiles="form.css"
+<dti:template title="SisSoPront | Inserir solicitação" cssFiles="form.css"
 	jsFiles="solicitacao/MaskFormularios.js,acao.js" pagina="solicitações">
 	<dti:solicitacao pagina="nova">
 		<ol class="breadcrumb">
@@ -15,7 +15,7 @@
 		<form:form method="post" action="${action}">
 
 			<spring:hasBindErrors htmlEscape="true"
-				name="solicitacaoFormularioCadastro">
+				name="solicitacaoFormulario">
 				<div class="alert alert-danger" role="alert">
 					<div class="formerror">
 						<ul>
@@ -88,6 +88,20 @@
 						<textarea maxlength="4000" id="motivo" class="form-control"
 							name="motivo" rows="4">${param['motivo']}</textarea>
 					</div>
+			</div>
+			
+			<div class="col-sm-6 hidden">
+				<div class="form-group">
+				<label for="horario">Horário da Ocorrência:</label> <input class="form-control"
+					name="horario" type="text" id="horario" value="${param['horario']}">
+				</div>
+			</div>
+			
+			<div class="col-sm-6 hidden">
+				<div class="form-group">
+				<label for="local">Local  da Ocorrência:</label> <input class="form-control"
+					name="local" type="text" id="local" value="${param['local']}">
+				</div>
 			</div>
 			
 			<div class="col-sm-6">

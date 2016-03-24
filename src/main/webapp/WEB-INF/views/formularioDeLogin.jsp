@@ -9,7 +9,7 @@
 			<img src="<c:url value="/resources/images/so_logo_t.png" />" height="120px" width="95px"
 				style="image-rendering: pixelated; opacity: 0.8;" />
 			<h3 style="color: #6A6A6A;">
-				SisPRONT - Sistema de Solicitação de Prontuários
+				SisSoPront - Sistema de Solicitação de Prontuários
 				</h3>
 			<hr />
 		</div>

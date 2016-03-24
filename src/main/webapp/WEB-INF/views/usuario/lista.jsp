@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 
-<dti:template title="SisATIH | Usuários"
+<dti:template title="SisSoPront | Usuários"
 	jsFiles="solicitacao/filtroUsuarios.js,solicitacao/mensagens.js"
 	pagina="usuarios">
 	<dti:usuario pagina="lista">

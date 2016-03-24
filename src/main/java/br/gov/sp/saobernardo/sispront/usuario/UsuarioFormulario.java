@@ -19,6 +19,8 @@ public class UsuarioFormulario {
 	private String telefone;
 
 	private String celular;
+	
+	private String unidade;
 
 	public Usuario convertePara(Usuario usuario) {
 
@@ -28,6 +30,7 @@ public class UsuarioFormulario {
 		usuario.setFuncao(funcao);
 		usuario.setTelefone(telefone);
 		usuario.setCelular(celular);
+		usuario.setUnidade(unidade);
 		return usuario;
 	}
 
@@ -77,5 +80,13 @@ public class UsuarioFormulario {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
 	}
 }

@@ -2,8 +2,24 @@ body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
-div.dataTables_wrapper {
-        margin-bottom: 3em;
-    }
-div.container { max-width: 1200px }
 
+div.dataTables_wrapper {
+	margin-bottom: 3em;
+}
+
+div.container {
+	max-width: 1200px
+}
+
+.icon-usuario {
+	display: none;
+}
+
+@media screen and (max-width: 1000px) {
+	.nome-usuario {
+		display: none;
+	}
+	.icon-usuario {
+		display: block;
+	}
+}

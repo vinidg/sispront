@@ -3,10 +3,13 @@
 }
 
 .left-column {
-	padding-left: 0;
+	padding-left: 0px;
 }
 
 .right-column {
-	padding-right: 0;
+	padding-right: 0px;
 }
 
+.quadro-clinico-boolean {
+	border: 1px solid #ccc;
+}

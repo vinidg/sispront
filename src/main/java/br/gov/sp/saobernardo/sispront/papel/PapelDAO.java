@@ -13,7 +13,6 @@ public class PapelDAO implements Papeis {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
 	public List<Papel> todos() {
 		return em.createQuery("select p from Papel p where p.nome <> 'ROLE_LOGADO'", Papel.class).getResultList();
 	}

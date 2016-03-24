@@ -34,34 +34,10 @@
 					<table class="table table-condensed compact responsive">
 						<thead>
 							<tr>
-								<th class="input-filter">Paciente</th>
-								<th class="select-filter">Nome da mãe</th>
-								<th class="select-filter">RG</th>
-								<th>Data Nascimento</th>
-								<th>Data de Atendimento</th>
-								<th>Motivo</th>
-								<th>Internação</th>
-								<th>Dias</th>
-								<th>Status</th>
-								<th>Data solicitação</th>
-								<th>Telefone</th>
-								<th>Celular</th>
-								<th>Solicitante</th>
-								<th>RG solicitante</th>
-								<th>Observação</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tfoot>
-							<tr>
 								<th>Paciente</th>
-								<th>Nome da mãe</th>
-								<th>RG</th>
 								<th>Data Nascimento</th>
 								<th>Data de Atendimento</th>
 								<th>Motivo</th>
-								<th>Internação</th>
-								<th>Dias</th>
 								<th>Status</th>
 								<th>Autor</th>
 								<th>Data solicitação</th>
@@ -69,32 +45,29 @@
 								<th>Celular</th>
 								<th>Solicitante</th>
 								<th>RG solicitante</th>
-								<th>Observação</th>
+								<th></th>
 							</tr>
-						</tfoot>
-						<tbody>
+						</thead>
+							<tbody>
 							<c:forEach items="${solicitacoes}" var="solicitacao">
 								<tr>
 									<td style="vertical-align: middle;">${solicitacao.nome}</td>
-									<td style="vertical-align: middle;">${solicitacao.mae}</td>
-									<td style="vertical-align: middle;">${solicitacao.rg}</td>
 									<td style="vertical-align: middle;"><fmt:formatDate
 											pattern="dd/MM/yyyy"
-											value="${solicitacao.dataNascimento}" /></td>
+											value="${solicitacao.dataNascimento.time}" /></td>
 									<td style="vertical-align: middle;"><fmt:formatDate
 											pattern="dd/MM/yyyy"
-											value="${solicitacao.dataAtendimento}" /></td>
+ 											value="${solicitacao.dataAtendimento.time}" /></td>
 									<td style="vertical-align: middle;">${solicitacao.motivo}</td>
-									<td style="vertical-align: middle;">${solicitacao.interncao}</td>
-									<td style="vertical-align: middle;">${solicitacao.dias}</td>
 									<td style="vertical-align: middle;">${solicitacao.status}</td>
 									<td style="vertical-align: middle;">${solicitacao.autor.nome}</td>
-									<td style="vertical-align: middle;">${solicitacao.data}</td>
+									<td style="vertical-align: middle;"><fmt:formatDate
+ 											pattern="dd/MM/yyyy HH:mm:ss"
+ 											value="${solicitacao.data.time}" /></td>
 									<td style="vertical-align: middle;">${solicitacao.telefone}</td>
 									<td style="vertical-align: middle;">${solicitacao.celular}</td>
 									<td style="vertical-align: middle;">${solicitacao.nomeSolicitante}</td>
 									<td style="vertical-align: middle;">${solicitacao.rgSolicitante}</td>
-									<td style="vertical-align: middle;">${solicitacao.observacao}</td>
 									
 									
 									<td style="vertical-align: middle;"><c:url
@@ -116,12 +89,6 @@
 												<ul class="dropdown-menu dropdown-menu-right">
 													<li><a href="${visualizar}"><i
 															class="glyphicon glyphicon-zoom-in"></i>&nbsp; Visualizar</a></li>
-													<c:if test="${solicitacao.permitidoAlteracaoDadosPessoais}">
-														<li><a
-															href="<c:url value="/a/solicitacao/${solicitacao.id}/edita-dados-pessoais"/>"><i
-																class="glyphicon glyphicon-edit"></i>&nbsp;Atualizar
-																dados pessoais</a></li>
-													</c:if>
 												</ul>
 											</div>
 										</sec:authorize></td>

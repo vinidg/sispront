@@ -67,7 +67,6 @@ public class Papel implements GrantedAuthority {
 		return true;
 	}
 
-	@Override
 	public String getAuthority() {
 		return nome;
 	}

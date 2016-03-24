@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
-<dti:template title="SisATIH | Todos" cssFiles="form.css"
+<dti:template title="SisSoPront | Todas Solicitações" cssFiles="form.css"
 	jsFiles="solicitacao/filtro.js,solicitacao/mensagens.js,solicitacao/tooltip.js"
 	refresh="true" pagina="inicial">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
@@ -25,7 +25,7 @@
 				solicitacoes="${novasSolicitacoes}"
 				titulo="Solicitações novas"
 				mensagemVazia="Não existem solicitações no momento"
-				cor="panel-warning" divId="novasSolicitacoesDaUnidadeSolicitante"
+				cor="panel-danger" divId="novasSolicitacoes"
 				mostraStatus="false" />
 		</sec:authorize>
 	</div>

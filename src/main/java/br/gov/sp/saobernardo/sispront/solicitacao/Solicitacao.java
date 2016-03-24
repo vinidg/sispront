@@ -6,49 +6,43 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+import javax.persistence.PrePersist;
+import javax.persistence.SequenceGenerator;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import br.gov.sp.saobernardo.sispront.usuario.Unidade;
 import br.gov.sp.saobernardo.sispront.usuario.Usuario;
 
 @Entity
 public class Solicitacao {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sq_solicitacao")
+	@SequenceGenerator(name = "sq_solicitacao", sequenceName = "sq_solicitacao", allocationSize = 1, initialValue = 1)
 	private Long id;
 	
-	@NotBlank(message = "{}")
 	private String nome;
-	
-	@NotBlank(message = "{}")
+
 	private String mae;
 	
-	@NotBlank(message = "{}")
 	private String rg;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataNascimento;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataAtendimento;
 	
 	private String motivo;
 	
-	@NotBlank(message = "{}")
+	private String horario;
+	
+	private String local;
+	
 	private String telefone;
 	
 	private String celular;
 	
-	@NotNull(message = "{}")
 	private Boolean internacao;
 	
 	private Double dias;
@@ -63,23 +57,27 @@ public class Solicitacao {
 	private Status status;
 	
 	@ManyToOne
-	@JoinColumn(name = "autor_id")
+	@JoinColumn(name="autor_id")
 	private Usuario autor;
 	
-	private Unidade unidade;
+	private String unidade;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
 	
 	public Solicitacao() {
 		status = Status.Aguardando_Levantamento_de_Ficha;
-		setUnidade(autor.getUnidade());
 	}
 
+	@PrePersist
+	void prePersist() {
+		data = Calendar.getInstance();
+	}
+	
 	public Long getId() {
 		return id;
 	}
 
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -212,11 +210,27 @@ public class Solicitacao {
 		this.status = status;
 	}
 
-	public Unidade getUnidade() {
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public String getUnidade() {
 		return unidade;
 	}
 
-	public void setUnidade(Unidade unidade) {
+	public void setUnidade(String unidade) {
 		this.unidade = unidade;
 	}
 

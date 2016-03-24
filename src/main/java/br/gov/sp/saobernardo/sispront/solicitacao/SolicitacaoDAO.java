@@ -6,11 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
-
-import br.gov.sp.saobernardo.sispront.usuario.Unidade;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class SolicitacaoDAO implements Solicitacoes{
@@ -27,14 +25,12 @@ public class SolicitacaoDAO implements Solicitacoes{
 		
 	}
 
-	@Override
 	@Transactional
 	public void adicionaSolicitacao(Solicitacao solicitacao){
 		manager.persist(solicitacao);
 	}
 
-	@Override
-	public List<Solicitacao> buscaSolicitacoes(Unidade unidade){
+	public List<Solicitacao> buscaSolicitacoes(String unidade){
 		try {
 			TypedQuery<Solicitacao> query = manager.createQuery(
 					"select s from Solicitacao s where s.unidade in :unidade and s.status in :status",

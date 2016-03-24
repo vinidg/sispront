@@ -1,12 +1,15 @@
 package br.gov.sp.saobernardo.sispront.solicitacao;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +25,16 @@ import br.gov.sp.saobernardo.sispront.usuario.Usuarios;
 public class HomeController {
 	
 	@Autowired
-	private UsuarioAdaptador usuarioAdaptador;
+	UsuarioAdaptador usuarioAdaptador;
 	
 	@Autowired
 	private Solicitacoes solicitacoes;
 	
 	@Autowired
 	private Usuarios usuarios;
+	
+	@Autowired
+	private MessageSource msgSource;
 	
 	/** 
 	 * @Deprecated Somente aos olhos do Spring
@@ -46,28 +52,33 @@ public class HomeController {
 	
 	@Secured(Nomes.ROLE_SOLICITANTE)
 	@RequestMapping(value = "/a/solicitacao/nova" , method = RequestMethod.GET)
-	public String mostraFormularioDeCadastro(Model model) {
+	public String mostraFormularioDeCadastro() {
 		return "solicitacao/formularioNovaSolicitacao";
 	}
 	
 	@Secured(Nomes.ROLE_SOLICITANTE)
+	@Transactional
 	@RequestMapping(value = "/a/solicitacao/nova" , method = RequestMethod.POST)
-	public String salvarCadastro(@Valid Solicitacao solicitacao, Model model,
+	public String salvarCadastro(@Valid SolicitacaoFormulario solicitacaoFormulario, Model model,
 			BindingResult result, RedirectAttributes redirect) {
 
-		if(result.hasErrors()){
-			return mostraFormularioDeCadastro(model);
-		}
-
+		Solicitacao solicitacao = solicitacaoFormulario.convertePara(new Solicitacao());
 		Usuario usuario = usuarioAdaptador.obterUsuarioLogado();
 		solicitacao.setAutor(usuario);
-		solicitacao.setStatus(Status.Aguardando_Levantamento_de_Ficha);
-
+		solicitacao.setUnidade(usuario.getUnidade());
+		
+		if(result.hasErrors()){
+			return "solicitacao/formularioNovaSolicitacao";
+		}
+		
 		solicitacoes.adicionaSolicitacao(solicitacao);
-
-		return "redirect:/a/solicitacao/home";
+		
+		String msg = msgSource.getMessage("solicitacao.cadastro.sucesso", null, "", new Locale("pt", "BR"));
+		redirect.addFlashAttribute("msgSucesso", msg);
+		
+		return "redirect:/a/solicitacao/todos";
 	}
-	
+
 	@Secured({ Nomes.ROLE_SOLICITANTE, Nomes.ROLE_MONITOR })
 	@RequestMapping(value = "/a/solicitacao/todos", method = RequestMethod.GET)
 	public String mostraListaTodos(Model model){

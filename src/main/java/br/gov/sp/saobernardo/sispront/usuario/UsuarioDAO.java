@@ -8,12 +8,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.annotations.VisibleForTesting;
 
@@ -40,50 +39,42 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		em = manager;
 	}
 
-	@Override
 	public void adiciona(Usuario usuario) {
 		usuario.getPapeis().add(new Papel(Nomes.ROLE_LOGADO));
 		em.persist(usuario);
 	}
 
-	@Override
 	public Usuario buscaPorId(Long id) {
 		return em.find(Usuario.class, id);
 	}
 
-	@Override
 	public List<Usuario> todos() {
 		return em.createQuery("select u from Usuario u", Usuario.class).getResultList();
 	}
 
-	@Override
 	@Transactional
 	public void altera(Usuario usuario) {
 		usuario.getPapeis().add(new Papel(Nomes.ROLE_LOGADO));
 		em.merge(usuario);
 	}
 
-	@Override
 	@Transactional
 	public void desativa(Usuario usuario) {
 		usuario.setAtivado(false);
 		em.merge(usuario);
 	}
 
-	@Override
 	@Transactional
 	public void ativa(Usuario usuario) {
 		usuario.setAtivado(true);
 		em.merge(usuario);
 	}
 
-	@Override
 	@Transactional
 	public void remove(Usuario usuario) {
 		em.remove(usuario);
 	}
 
-	@Override
 	public Usuario buscaPorEmail(String email) {
 		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.email = :email", Usuario.class);
 		query.setParameter("email", email);
@@ -94,7 +85,6 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		}
 	}
 
-	@Override
 	public Usuario buscaPorEmail(String email, Long id) {
 		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.email = :email and u.id <> :id",
 				Usuario.class);
@@ -107,7 +97,6 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		}
 	}
 
-	@Override
 	public Usuario buscaPorRegistro(String registro, Long id) {
 		TypedQuery<Usuario> query = em
 				.createQuery("select u from Usuario u where u.registro = :registro and u.id <> :id", Usuario.class);
@@ -120,7 +109,6 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		}
 	}
 
-	@Override
 	public Usuario buscaPorRegistro(String registro) {
 		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.registro = :registro",
 				Usuario.class);
@@ -132,7 +120,6 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		}
 	}
 
-	@Override
 	public Usuario buscaPor(String registro, String senha) {
 		TypedQuery<Usuario> query = em.createQuery(
 				"select u from Usuario u where u.registro = :registro and u.senha = :senha", Usuario.class);
@@ -147,7 +134,6 @@ public class UsuarioDAO implements Usuarios, UserDetailsService {
 		}
 	}
 
-	@Override
 	public UserDetails loadUserByUsername(String registro) throws UsernameNotFoundException {
 		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.registro = :registro",
 				Usuario.class);

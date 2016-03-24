@@ -4,7 +4,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<dti:template title="SisATIH | Alterar usuário" cssFiles="form.css"
+<dti:template title="SisSoPront | Alterar usuário" cssFiles="form.css"
 	jsFiles="solicitacao/MaskFormularios.js,acao.js,solicitacao/mensagens.js"
 	pagina="usuarios">
 	<dti:usuario>

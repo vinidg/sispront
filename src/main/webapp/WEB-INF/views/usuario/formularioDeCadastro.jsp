@@ -4,7 +4,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<dti:template title="SisATIH | Inserir usuário" cssFiles="form.css"
+<dti:template title="SisSoPront | Inserir usuário" cssFiles="form.css"
 	jsFiles="solicitacao/MaskFormularios.js,acao.js" pagina="usuarios">
 	<dti:usuario pagina="novo">
 		<ol class="breadcrumb">
@@ -39,7 +39,7 @@
 
 			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="unidade">Papéis:</label>
+					<label for="papeis	">Papéis:</label>
 					<c:forEach items="${papeis}" var="papel" varStatus="i">
 						<div>
 							<label style="font-weight: normal;"> <input

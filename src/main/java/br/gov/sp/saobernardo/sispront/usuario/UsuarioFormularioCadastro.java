@@ -35,6 +35,7 @@ public class UsuarioFormularioCadastro extends UsuarioFormulario {
 		if (senha != null) {
 			usuario.setSenha(senha.getSenha());
 		}
+		usuario.setUnidade(getUnidade());
 		return usuario;
 	}
 

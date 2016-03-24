@@ -4,7 +4,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<dti:template title="SisATIH | Alterar senha do usuário"
+<dti:template title="SisSoPront | Alterar senha do usuário"
 	cssFiles="form.css" jsFiles="solicitacao/mensagens.js">
 
 	<div class="col-xs-12 container">
