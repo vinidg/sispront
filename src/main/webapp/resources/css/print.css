@@ -1,0 +1,66 @@
+.print {
+	display: none;
+}
+
+@media print {
+	* {
+		background: transparent !important;
+		color: #000 !important;
+		text-shadow: none !important;
+		filter: none !important;
+		-ms-filter: none !important;
+	}
+	div.dataTables_wrapper {
+		margin-bottom: 0px;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		line-height: 1.4em;
+		font-size: small;
+	}
+	.break-before, .break-before-prev2 {
+		page-break-before: always;
+	}
+	.break-after {
+		page-break-after: always;
+	}
+	.no-print {
+		display: none;
+	}
+	.print {
+		display: block;
+	}
+	.float-none {
+		float: none;
+	}
+	legend {
+		border-bottom: 1px solid #858585;
+	}
+	.form-group {
+		margin-bottom: 4px;
+	}
+	label {
+		margin-bottom: 0px;
+	}
+	hr {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		border: 0;
+		border-top: 1px solid #858585;
+	}
+	small, .small {
+		font-size: 75%;
+	}
+	table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td,
+		.table>tbody>tr>td, .table>tfoot>tr>td {
+		border-top: 0px solid #ddd;
+	}
+	.table-responsive {
+		margin-top: -18px;
+	}
+	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td,
+		.table>tbody>tr>td, .table>tfoot>tr>td {
+		padding: 2px;
+	}
+}
