@@ -7,6 +7,8 @@ public interface Solicitacoes {
 	void adicionaSolicitacao(Solicitacao solicitacao);
 
 	List<Solicitacao> buscaSolicitacoes(String unidade);
+
+	Solicitacao buscaPorId(Long id);
 	
 	
 

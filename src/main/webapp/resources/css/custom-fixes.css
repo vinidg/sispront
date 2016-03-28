@@ -23,3 +23,7 @@ div.container {
 		display: block;
 	}
 }
+.vertical {
+    vertical-align: middle;
+    display: table-cell;
+}

@@ -5,8 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <dti:template title="SisSoPront | Inserir solicitação" cssFiles="form.css"
-	jsFiles="solicitacao/MaskFormularios.js,acao.js" pagina="solicitações">
-	<dti:solicitacao pagina="nova">
+	jsFiles="solicitacao/MaskFormularios.js,acao.js" pagina="nova">
 		<ol class="breadcrumb">
 			<li><a href="<c:url value="/a/solicitacao/home"/>">Home</a></li>
 			<li class="active">Nova solicitação</li>
@@ -29,35 +28,35 @@
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="nome">Nome do Paciente:</label> <input class="form-control"
+				<label for="nome">Nome do paciente:</label> <input class="form-control"
 					name="nome" type="text" value="${param['nome']}">
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="mae">Nome da Mãe:</label> <input class="form-control"
+				<label for="mae">Nome da mãe:</label> <input class="form-control"
 					name="mae" type="text" value="${param['mae']}">
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="trg">RG do Paciente:</label> <input class="form-control"
+				<label for="trg">RG do paciente:</label> <input class="form-control"
 					name="rg" type="text" id="rg" value="${param['rg']}">
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="dataNascimento">Data de Nascimento:</label> <input class="form-control"
+				<label for="dataNascimento">Data de nascimento:</label> <input class="form-control"
 					name="dataNascimento" id="dataNascimento" type="text" value="${param['dataNascimento']}">
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="dataAtendimento">Data de Atendimento:</label> <input class="form-control"
+				<label for="dataAtendimento">Data de atendimento:</label> <input class="form-control"
 					name="dataAtendimento" id="dataAtendimento" type="text" value="${param['dataAtendimento']}">
 				</div>
 			</div>
@@ -92,14 +91,14 @@
 			
 			<div class="col-sm-6 hidden">
 				<div class="form-group">
-				<label for="horario">Horário da Ocorrência:</label> <input class="form-control"
+				<label for="horario">Horário da ocorrência:</label> <input class="form-control"
 					name="horario" type="text" id="horario" value="${param['horario']}">
 				</div>
 			</div>
 			
 			<div class="col-sm-6 hidden">
 				<div class="form-group">
-				<label for="local">Local  da Ocorrência:</label> <input class="form-control"
+				<label for="local">Local  da ocorrência:</label> <input class="form-control"
 					name="local" type="text" id="local" value="${param['local']}">
 				</div>
 			</div>
@@ -120,13 +119,13 @@
 				
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="celular">Nome do Solicitante:</label> <input class="form-control"
+				<label for="celular">Nome do solicitante:</label> <input class="form-control"
 					name="nomeSolicitante" type="text" value="${param['nomeSolicitante']}">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-				<label for="celular">Rg do Solicitante:</label> <input class="form-control"
+				<label for="celular">Rg do solicitante:</label> <input class="form-control"
 					name="rgSolicitante" id="rgSolicitante" type="text" value="${param['rgSolicitante']}">
 				</div>
 			</div>
@@ -145,6 +144,5 @@
 			</div>
 			
 		</form:form>
-		</dti:solicitacao>
 </dti:template>
 			

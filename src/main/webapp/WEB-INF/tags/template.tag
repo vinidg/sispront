@@ -66,14 +66,18 @@
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="nav navbar-nav">
-							<sec:authorize
-								access="hasRole('ROLE_SOLICITANTE') or hasRole('ROLE_REGULADOR') or hasRole('ROLE_EXECUTANTE') or hasRole('ROLE_MONITOR')">
 								<li class="${pagina == 'inicial' ? 'active' : '' }"><a
 									href="<c:url value="/a/solicitacao/home"/>">Página
 										inicial</a></li>
+								<li class="${pagina == 'nova' ? 'active' : '' }"><a
+									href="<c:url value="/a/solicitacao/nova"/>">Nova solicitação</a></li>
+							<sec:authorize
+								access="hasRole('ROLE_SOLICITANTE')">
+								<li class="${pagina == 'todos' ? 'active' : '' }"><a
+									href="<c:url value="/a/solicitacao/todos"/>">Todas solicitações</a></li>
 							</sec:authorize>
 							<sec:authorize
-								access="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_REGULADOR')">
+								access="hasRole('ROLE_ADMINISTRADOR')">
 								<li
 									class="dropdown ${(pagina == 'unidades' || pagina == 'medicos' || pagina == 'usuarios') ? 'active' : '' }"><a
 									href="#" class="dropdown-toggle" data-toggle="dropdown"

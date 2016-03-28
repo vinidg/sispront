@@ -3,9 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <dti:template title="SisSoPront | Home" pagina="inicial">
-	<dti:solicitacao>
-		<body>
-				<p style="color:#FAFAFA">Bem vindo!</p>
-		</body>
-	</dti:solicitacao>
+	<div class="text-center">
+		<h1>Bem vindo, ${nomeDoUsuario.nome} !</h1>
+	</div>
 </dti:template>

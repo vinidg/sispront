@@ -43,4 +43,8 @@ public class SolicitacaoDAO implements Solicitacoes{
 			return null;
 		}
 	}
+	
+	public Solicitacao buscaPorId(Long id) {
+		return manager.find(Solicitacao.class, id);
+	} 
 }

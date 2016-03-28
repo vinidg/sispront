@@ -6,7 +6,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="dti"%>
 <dti:template title="SisSoPront | Todas Solicitações" cssFiles="form.css"
 	jsFiles="solicitacao/filtro.js,solicitacao/mensagens.js,solicitacao/tooltip.js"
-	refresh="true" pagina="inicial">
+	refresh="true" pagina="todos">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
