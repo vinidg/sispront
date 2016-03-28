@@ -99,10 +99,8 @@ public class HomeController {
 	@Secured({ Nomes.ROLE_SOLICITANTE, Nomes.ROLE_MONITOR })
 	@RequestMapping(value = "/a/solicitacao/{id}", method = RequestMethod.GET)
 	public String mostraSolicitacao(@PathVariable("id") Long id, Model model, HttpSession session) {
-		
 		Solicitacao solicitacao = solicitacoes.buscaPorId(id);
 		model.addAttribute("solicitacao", solicitacao);
-		
 		return "solicitacao/mostraSolicitacao";
 	}
 	

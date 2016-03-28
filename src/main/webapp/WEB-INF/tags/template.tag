@@ -66,13 +66,19 @@
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="nav navbar-nav">
+								<sec:authorize
+								access="hasRole('ROLE_LOGADO')">
 								<li class="${pagina == 'inicial' ? 'active' : '' }"><a
 									href="<c:url value="/a/solicitacao/home"/>">Página
 										inicial</a></li>
+								</sec:authorize>
+								<sec:authorize
+								access="hasRole('ROLE_LOGADO') or hasRole('ROLE_SOLICITANTE')">
 								<li class="${pagina == 'nova' ? 'active' : '' }"><a
 									href="<c:url value="/a/solicitacao/nova"/>">Nova solicitação</a></li>
+							</sec:authorize>
 							<sec:authorize
-								access="hasRole('ROLE_SOLICITANTE')">
+								access="hasRole('ROLE_SOLICITANTE') or hasRole('ROLE_MONITOR')">
 								<li class="${pagina == 'todos' ? 'active' : '' }"><a
 									href="<c:url value="/a/solicitacao/todos"/>">Todas solicitações</a></li>
 							</sec:authorize>

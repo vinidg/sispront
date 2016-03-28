@@ -3,6 +3,7 @@
 }
 
 @media print {
+	@page { margin: 5; }
 	* {
 		background: transparent !important;
 		color: #000 !important;
