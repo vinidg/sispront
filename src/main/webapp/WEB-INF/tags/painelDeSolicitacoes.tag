@@ -59,7 +59,7 @@
 											pattern="dd/MM/yyyy"
  											value="${solicitacao.dataAtendimento.time}" /></td>
 									<td style="vertical-align: middle;">${solicitacao.motivo}</td>
-									<td style="vertical-align: middle;">${solicitacao.status}</td>
+ 									<td style="vertical-align: middle;">${solicitacao.status}</td>
 									<td style="vertical-align: middle;">${solicitacao.autor.nome}</td>
 									<td style="vertical-align: middle;"><fmt:formatDate
  											pattern="dd/MM/yyyy HH:mm:ss"
@@ -72,12 +72,16 @@
 									
 									<td style="vertical-align: middle;"><c:url
 											value="/a/solicitacao/${solicitacao.id}" var="visualizar" />
+											<c:url
+											value="/a/solicitacao/${solicitacao.id}/status" var="resposta" />
 										<sec:authorize
-											access="!hasRole('ROLE_SOLICITANTE') and !hasRole('ROLE_REGULADOR')">
+											access="!hasRole('ROLE_SOLICITANTE') and !hasRole('ROLE_MONITOR')">
 											<a class="btn btn-default" href="${visualizar}"><i
 												class="glyphicon glyphicon-zoom-in"></i>&nbsp; Visualizar</a>
+												<a class="btn btn-default" href="${visualizar}"><i
+												class="glyphicon glyphicon-download-alt"></i>&nbsp; Resposta</a>
 										</sec:authorize> <sec:authorize
-											access="hasRole('ROLE_SOLICITANTE') or hasRole('ROLE_REGULADOR')">
+											access="hasRole('ROLE_SOLICITANTE') or hasRole('ROLE_MONITOR')">
 											<div class="btn-group">
 												<button type="button"
 													class="btn btn-sm btn-default dropdown-toggle"
@@ -89,6 +93,8 @@
 												<ul class="dropdown-menu dropdown-menu-right">
 													<li><a href="${visualizar}"><i
 															class="glyphicon glyphicon-zoom-in"></i>&nbsp; Visualizar</a></li>
+													<li><a href="${resposta}"><i
+															class="glyphicon glyphicon-download-alt"></i>&nbsp; Resposta</a></li>
 												</ul>
 											</div>
 										</sec:authorize></td>

@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.gov.sp.saobernardo.sispront.resposta.Status;
 import br.gov.sp.saobernardo.sispront.usuario.Usuario;
 
 public class SolicitacaoFormulario {

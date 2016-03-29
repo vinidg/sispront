@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<class>br.gov.sp.saobernardo.sispront.papel.Papel</class>
 		<class>br.gov.sp.saobernardo.sispront.solicitacao.historico.Alteracao</class>
 		<class>br.gov.sp.saobernardo.sispront.solicitacao.Solicitacao</class>
-		
+		<class>br.gov.sp.saobernardo.sispront.resposta.Resposta</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect" />
 			<property name="hibernate.show_sql" value="false" />

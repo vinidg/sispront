@@ -131,6 +131,48 @@ p {
 					</div>
 				</div>
 			</div>
+	<div class="col-xs-12 col-sm-12 no-print">
+		<legend>
+			<small class="text-center">Histórico</small>
+		</legend>
+		<c:if test="${not empty respostas}">
+			<div class="table-responsive no-print">
+				<table class="table display compact"
+					style="font-size: 12px !important;">
+					<thead class="no-print">
+						<tr>
+							<th>Data</th>
+							<th>Autor da Ação</th>
+							<th>Resposta</th>
+							<th>Motivo</th>
+							<th>RG do retirante</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${respostas}" var="resposta">
+							<tr>
+								<td class="no-print"><fmt:formatDate
+										pattern="dd/MM/yyyy HH:mm:ss" value="${resposta.dataDaResposta.time}" /></td>
+								<td class="no-print">${resposta.autor.nome}-${resposta.autor.funcao}-
+									${resposta.autor.unidade}</td>
+								<td class="no-print">${resposta.resposta}</td>
+								<td class="no-print">${resposta.motivo}</td>
+								<td class="no-print">${resposta.rg}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</c:if>
+		<c:if test="${empty respostas}">
+			<div class="col-xs-12 col-sm-12">
+				<span class="glyphicon glyphicon-exclamation-sign"></span> Essa
+				solicitação não possui histórico...
+			</div>
+			<div class="col-xs-12 col-sm-12" style="height: 30px;"></div>
+		</c:if>
+		</div>
+		
 			&nbsp;
 			<div class="col-xs-12 col-sm-12 text-center print">
 					<script type="text/javascript">

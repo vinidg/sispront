@@ -1,5 +1,5 @@
 package br.gov.sp.saobernardo.sispront.usuario;
 
 public enum Funcao {
-	Atendente, Enfermeiro, Médico, Regulador, Gestor
+	Atendente, Enfermeiro, Médico, Gestor
 }

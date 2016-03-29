@@ -1,6 +1,5 @@
 package br.gov.sp.saobernardo.sispront.solicitacao;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -33,10 +32,9 @@ public class SolicitacaoDAO implements Solicitacoes{
 	public List<Solicitacao> buscaSolicitacoes(String unidade){
 		try {
 			TypedQuery<Solicitacao> query = manager.createQuery(
-					"select s from Solicitacao s where s.unidade in :unidade and s.status in :status",
+					"select s from Solicitacao s where s.unidade in :unidade",
 					Solicitacao.class);
 			query.setParameter("unidade", unidade);
-			query.setParameter("status", Arrays.asList(Status.Aguardando_Levantamento_de_Ficha, Status.Aguardando_Retirada));
 			return query.getResultList();
 
 		} catch (Exception e) {
@@ -47,4 +45,10 @@ public class SolicitacaoDAO implements Solicitacoes{
 	public Solicitacao buscaPorId(Long id) {
 		return manager.find(Solicitacao.class, id);
 	} 
+	
+	@Transactional
+	public void altera(Solicitacao solicitacao){
+		manager.merge(solicitacao);
+	}
+	
 }

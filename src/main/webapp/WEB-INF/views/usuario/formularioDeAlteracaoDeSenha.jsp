@@ -10,7 +10,7 @@
 	<div class="col-xs-12 container">
 		<h4>Alterar senha</h4>
 
-		<spring:hasBindErrors htmlEscape="true" name="senhaParaFormulario">
+		<spring:hasBindErrors htmlEscape="true" name="UsuarioFormularioCadastro">
 			<font color="red"> <c:forEach items="${errors.allErrors}"
 					var="error">
 					<spring:message text="${error.defaultMessage}" />

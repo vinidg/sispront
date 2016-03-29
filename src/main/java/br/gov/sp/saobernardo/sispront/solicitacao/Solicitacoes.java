@@ -9,6 +9,9 @@ public interface Solicitacoes {
 	List<Solicitacao> buscaSolicitacoes(String unidade);
 
 	Solicitacao buscaPorId(Long id);
+
+	void altera(Solicitacao solicitacao);
+
 	
 	
 

@@ -1,7 +1,10 @@
 package br.gov.sp.saobernardo.sispront.solicitacao;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,10 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
 
+import br.gov.sp.saobernardo.sispront.resposta.Resposta;
+import br.gov.sp.saobernardo.sispront.resposta.Status;
 import br.gov.sp.saobernardo.sispront.usuario.Usuario;
 
 @Entity
@@ -26,6 +32,9 @@ public class Solicitacao {
 	private String nome;
 
 	private String mae;
+	
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	
 	private String rg;
 	
@@ -53,9 +62,6 @@ public class Solicitacao {
 	
 	private String observacao;
 	
-	@Enumerated(EnumType.STRING)
-	private Status status;
-	
 	@ManyToOne
 	@JoinColumn(name="autor_id")
 	private Usuario autor;
@@ -64,13 +70,19 @@ public class Solicitacao {
 	
 	private Calendar data;
 	
-	public Solicitacao() {
-		status = Status.Aguardando_Levantamento_de_Ficha;
-	}
-
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "solicitacao_id")
+	private Set<Resposta> respostas = new HashSet<Resposta>();
+	
 	@PrePersist
 	void prePersist() {
 		data = Calendar.getInstance();
+	}
+	
+	public void insereResposta(Solicitacoes solicitacoes, Resposta resposta){
+		respostas.add(resposta);
+		status = resposta.getResposta();
+		solicitacoes.altera(this);
 	}
 	
 	public Long getId() {
@@ -202,14 +214,6 @@ public class Solicitacao {
 		this.dias = dias;
 	}
 
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
-
 	public String getHorario() {
 		return horario;
 	}
@@ -232,6 +236,22 @@ public class Solicitacao {
 
 	public void setUnidade(String unidade) {
 		this.unidade = unidade;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public Set<Resposta> getRespostas() {
+		return respostas;
+	}
+
+	public void setRespostas(Set<Resposta> respostas) {
+		this.respostas = respostas;
 	}
 
 }
