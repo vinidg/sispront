@@ -10,7 +10,7 @@
 	<div class="col-xs-12 container">
 		<h4>Alterar senha</h4>
 
-		<spring:hasBindErrors htmlEscape="true" name="UsuarioFormularioCadastro">
+		<spring:hasBindErrors htmlEscape="true" name="senhaParaFormulario">
 			<font color="red"> <c:forEach items="${errors.allErrors}"
 					var="error">
 					<spring:message text="${error.defaultMessage}" />
@@ -20,7 +20,10 @@
 		</spring:hasBindErrors>
 
 		<c:if test="${not empty msgSucesso}">
-			<div class="alert alert-success" role="alert">${msgSucesso}</div>
+			<div class="alert alert-success">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Sucesso!</strong> ${msgSucesso}
+			</div>
 		</c:if>
 
 		<c:url value="/a/usuario/altera-senha" var="action" />

@@ -16,17 +16,17 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 			<label>Status</label>
-			<select name="resposta" class="form-control">
+			<select name="resposta" class="form-control" id="status">
 						<option value=""></option>
 				<c:forEach items="${status}" var="status1">
 					<option value="${status1}"
 					${param['resposta'] == status1  ? "selected" : "" }>${status1}</option>
 				</c:forEach>
 				</select>
-			</div>
+			</div> 
 		</div>
 		
-		<div class="col-sm-6">
+		<div class="col-sm-6" id="motivo">
 			<div class="form-group">
 			<label>Motivo</label>
 				<input class="form-control" name="motivo" type="text"
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		
-		<div class="col-sm-6">
+		<div class="col-sm-6" id="rg">
 			<div class="form-group">
 			<label>RG do retirante</label>
 				<input class="form-control" name="rg" type="text"

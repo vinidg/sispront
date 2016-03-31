@@ -27,4 +27,19 @@ function resetSenha(id, re, nome, email) {
 	}
 }
 
-		
+	$(function() {
+	    $('#motivo').hide();
+	    $('#rg').hide();
+	    $('#status').change(function(){
+	        if($('#status').val() == 'Entregue') {
+	            $('#rg').show(); 
+	            $('#motivo').hide()
+	        } else if ($('#status').val() == 'Não_Entregue'){
+	            $('#rg').hide(); 
+	            $('#motivo').show(); 
+	        } else{
+	        	 $('#motivo').hide();
+	     	    $('#rg').hide();
+	        }
+	    });
+	});

@@ -25,7 +25,10 @@
 			</spring:hasBindErrors>
 
 			<c:if test="${not empty msgSucesso}">
-				<div class="alert alert-success" role="alert">${msgSucesso}</div>
+				<div class="alert alert-success">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Sucesso!</strong> ${msgSucesso}
+			</div>
 			</c:if>
 
 			<c:url value="/a/usuario/${usuario.id}/altera-senha-adm" var="action" />
